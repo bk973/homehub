@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { SIGNUP_PATH, LOGIN_PATH } from '../../../../constants/paths'
 
-export default function loginMenu() {
-    return (
-        <nav className="navbar" role="navigation" aria-label="main navigation">
+export default function navbar() {
+        return(
+            <nav className="navbar" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
                   <Link className="navbar-item" to="/">HomeHub</Link>
             </div>
@@ -17,6 +17,5 @@ export default function loginMenu() {
              </div>
             </div>
         </nav>
-    
-    )
-}
+        )  
+    }
