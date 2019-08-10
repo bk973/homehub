@@ -9,6 +9,7 @@ $green: #00887A;
 $brown: #757763;
 $blue-light: #D3E3FC;
 $blue-grey: #eceff1;
+$white: #fff;
 
 //Bulma's global variables
 $family-sans-serif: "Nunito", sans-serif;
@@ -24,6 +25,7 @@ $body-background-color: $blue-grey;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
+$is-white: $white;
 
 //Components , elements and utilities needed...
 @import "../node_modules/bulma/sass/utilities/_all.sass";
@@ -45,4 +47,5 @@ $input-shadow: none;
 @import "../node_modules/bulma/sass/components/dropdown.sass";
 @import "../node_modules/bulma/sass/elements/icon.sass";
 @import "../node_modules/bulma/sass/components/media.sass";
-@import "../node_modules/bulma/sass/components/menu.sass"
+@import "../node_modules/bulma/sass/components/menu.sass";
+@import "../node_modules/bulma/sass/components/modal.sass";

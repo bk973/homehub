@@ -1,6 +1,5 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom' 
-import MainLayout from '../layouts/mainLayout'
 
 //routes...
 import homeRoute from './home'
@@ -11,7 +10,6 @@ import notfoundRoute from './notfound'
 
 export default function Routes() {
     return (
-       <MainLayout>
         <Switch>
            <Route
            exact
@@ -31,6 +29,5 @@ export default function Routes() {
            }
            <Route component={notfoundRoute}/>
          </Switch>
-       </MainLayout>
     )
 }

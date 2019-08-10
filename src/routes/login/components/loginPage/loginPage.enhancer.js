@@ -9,7 +9,7 @@ export default compose(
       //Add props.firebse
       withFirebase,
       withHandlers({
-            googleLogin: ({ firebase}) => {
+            googleLogin: ({ firebase}) => e => {
                   firebase.login({ provider: 'google', type: 'popup'})
                   .catch(err => console.log(err))
             }

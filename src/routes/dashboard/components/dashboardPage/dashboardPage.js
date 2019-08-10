@@ -2,15 +2,18 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { renderChildren} from '../../../../utils/router'
 
+import AccountMenu from '../accountMenu'
+import Sidenav from '../sideNav'
+
 //dashboard routes...
-import approvedRoute from '../../routes/approved'
+import approvedRoute from '../../routes/requests'
 import feedbackRoute from '../../routes/feedback'
 import historyRoute from '../../routes/history'
-import pendingRoute from '../../routes/pending'
+import requestsRoute from '../../routes/requests'
 import settingsRoute from '../../routes/settings'
-//
-import DashboardLayout from '../../../../layouts/dashboardLayout'
+
 import './dashboardPage.scss'
+
 export default function dashboardPage({
        firebase,
        profile,
@@ -18,18 +21,25 @@ export default function dashboardPage({
        displayName,
        avatarUrl,
        logout,
-       match
+       match,
 }) {
     return (
-      <DashboardLayout>
-        <Switch>
+      <div>
+        <AccountMenu
+        logout={logout}
+        />
+        <div className="section-wrapper">
+        <div className="columns">
+          <div className="column"><Sidenav/></div>
+          <div className="column is-four-fifths">
+          <Switch>
           { /**child routes of dashboard route */}
           { 
             renderChildren([
               approvedRoute,
               feedbackRoute,
               historyRoute,
-              pendingRoute,
+              requestsRoute,
               settingsRoute
             ], match, { auth })
           }
@@ -41,19 +51,25 @@ export default function dashboardPage({
               <div className="">
                 <div className="box welcome-banner">
                  <article>
-                  <h4 className="title is-4">Welcome to HomeHub, {displayName}</h4>
-                  <p className="subtitle is-6">euhrufhurhufrhufrufurfhur</p>
-                  <button className="button is-primary"> Start Your Journey</button>
+                    <h4 className="title is-4">Hi, {displayName}</h4>
+                     <p className="subtitle is-6"></p>
+                    <button className="button is-primary"> Start Your Journey</button>
                  </article>
                 </div>
                 <div className="box">
-                   <h4 className="title is-4">Analytics</h4>
+                  <p>
+                    <span className="icon is-large"><i class="fas fa-tachometer-alt fa-lg"></i></span>
+                    <span className="title is-4">Analytics</span>
+                  </p>
                 </div>
              </div>
             )
           }
           />
         </Switch>
-      </DashboardLayout>
+          </div>
+        </div>
+        </div>
+      </div>
     )
 }
