@@ -4,17 +4,17 @@ import './mainNav.scss'
 
 function MainNav() {
     return (
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <Link class="navbar-item" href="https://bulma.io">
-    </Link>
-
-    <Link role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
+<nav className="navbar navbar-custom" role="navigation" aria-label="main navigation">
+  <div className="navbar-brand">
+    <Link to="/" className="navbar-item">
+      HomeHub
     </Link>
   </div>
+  <div className="navbar-end">
+      <div className="navbar-item">
+       
+      </div>
+    </div>
 </nav>
     )
 }
