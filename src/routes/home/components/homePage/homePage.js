@@ -1,10 +1,15 @@
 import React from 'react'
 import MainNav from './components/mainNav'
+import Footer from './components/footer'
+import { GoogleLoginButton }  from 'react-social-login-buttons'
+import { SIGNUP_PATH } from '../../../../constants/paths'
 import { Link } from 'react-router-dom'
-import  house from '../../../../static/house.svg'
+import { ReactComponent as House  } from '../../../../static/house.svg'
+import { ReactComponent as Savings} from '../../../../static/savings.svg'
+import { ReactComponent as Setup} from '../../../../static/setup.svg'
 import './homePage.scss'
 
-export default function homePage() {
+export default function homePage({firebase, googleLogin}) {
     return (
         <React.Fragment>
           <MainNav/>
@@ -14,89 +19,70 @@ export default function homePage() {
               <div class="container">
                 <div className="columns">
                   <div className="column is-three-quaters">
-                    <h3 class="title is-3">
+                    <h3 class="title is-3 text-white">
                       The easiest way you can own a house!
                     </h3>
-                    <h5 class="subtitle is-5">
-                     Join the biggest hub for home owners. You can own a house at the best discounts.
-                     Get your account for free, today.
-                   </h5>
-                   <Link className="button is-primary">Start Now</Link>
+                    <div className="box">
+                      <GoogleLoginButton onClick={googleLogin}/>
+                     <p>By logging in, you agree to the<Link to=""> terms of service </Link>of this website</p>
+                   </div>
                   </div>
                   <div className="column">
-                        <image src={house} alt="house illustration"/>
+                  
                   </div>
                 </div>
                </div>
              </div>
            </div>
            
-           <div className="section-padding">
+           <div className="section-padding bg-grey">
+             <div className="container">
              <div className="columns">
-                <div className="column"></div>
-                <div className="column is-three-quarters">
-                  <p className="title is-3 has-text-centered">
-                   Get Started with HomeHub Personal account
-                  </p>
+                <div className="column"> 
+                <p className="title is-3">Discover beautiful homes, buy anytime!</p>
+                <p>Are you searching for a beautiful home to buy? You are at the right place.
+                  Signup for free and start discovering a wide rage of amazing homes.
+                </p>
                 </div>
                 <div className="column">
+                <House width="400" height="200"/>
                 </div>
+             </div>
              </div>
            </div>
 
            <div className="section-padding">
-              <div className="container is-fluid">
-                <p className="title is-3 has-text-centered">A better way to manage real estate</p>
-                <div className="columns">
-                  <div className="column">
-                       <div className="box">
-                          <p className="title is-4">Great rewards</p>
-                          <p></p>
-                          <hr className="divider"></hr>
-                           <div>
-                             <p>
-                               <span className="icon is-large"><i class="fas fa-piggy-bank fa-lg"></i></span>
-                               <span className="title is-5">Savings that rewards you</span>
-                             </p>
-                             <p>About the support in a few sentences</p>
-                           </div>
-                           <hr className="divider"></hr>
-                           <Link> 
-                              <span> Learn more about our rewards</span>
-                              <span className="icon"><i class="fas fa-arrow-right"></i></span>
-                           </Link>  
-                       </div>
-                  </div>
-                  <div className="column">
-                  <div className="box">
-                          <div>
-                            <p className="title is-4">Great service</p>
-                           <p></p>
-                          </div>
-                           <hr className="divider"></hr>
-                           <div>
-                             <p>
-                               <span className="icon is-large"><i class="fab fa-accessible-icon fa-lg"></i></span>
-                               <span className="title is-5">Support</span>
-                             </p>
-                             <p>About the support in a few sentences</p>
-                           </div>
-                           <hr className="divider"></hr>
-                           <Link> 
-                              <span> Learn more about our rewards</span>
-                              <span className="icon"><i class="fas fa-arrow-right"></i></span>
-                           </Link>
-                    </div>
-                  </div>
+             <div className="container">
+             <div className="columns">
+                <div className="column">
+                 <Setup width="400" height="200"/>
                 </div>
-              </div>
+                <div className="column">
+                   <p className="title">List your home for sale!</p>
+                   <p>List your home for sale, and our job is to make sure it gets bought by someone.
+                   </p> 
+                </div>
+             </div>
+             </div>
            </div>
-           <div className="white-bg section-padding">
-              <div className="container is-fluid">
 
-              </div>
+           <div className="section-padding bg-grey">
+             <div className="container">
+             <div className="columns">
+                <div className="column"> 
+                   <p className="title">Real estate and beyond!</p>
+                   <p>We don't stop at helping you sell or discover beautiful homes,
+                     We also help you acquire your own home through progressive savings and loans
+                   </p>
+                </div>
+                <div className="column">
+                <Savings width="400" height="200"/>
+                </div>
+             </div>
+             </div>
            </div>
 
+           
            <div className="container is-fluid section-padding">
              <div className="columns">
                <div className="column">
@@ -110,14 +96,13 @@ export default function homePage() {
                   </p>
                 </div>
                 <div className="column">
-                      <Link className="button is-primary is-medium">Create account</Link>
-                   
-                    <Link className="button is-light is-medium">Contact sales</Link>
+                    <Link to={SIGNUP_PATH} className="button is-primary is-medium btn">Create account</Link>
+                    <Link to="" className="button is-light is-medium btn">Contact sales</Link>
                 </div>
              </div>
            </div>
 
-           <hr className="divider"></hr>
+          <Footer/>
         </React.Fragment>
     )
 }
