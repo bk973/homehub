@@ -16,7 +16,7 @@ const history = createHistory()
  * @return {Component} wrappedComponent
  */
 export const UserIsAuthenticated = connectedRouterRedirect({
-  redirectPath: '/login',
+  redirectPath: '/',
   AuthenticatingComponent: LoadingSpinner,
   wrapperDisplayName: 'UserIsAuthenticated',
   // Want to redirect the user when they are done loading and authenticated
