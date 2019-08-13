@@ -3,9 +3,8 @@ import { Switch, Route } from 'react-router-dom'
 
 //routes...
 import homeRoute from './home'
+import discoverRoute from './discover'
 import dashboardRoute from './dashboard'
-import signupRoute from './signup'
-import loginRoute from './login'
 import notfoundRoute from './notfound'
 
 export default function Routes() {
@@ -18,9 +17,8 @@ export default function Routes() {
            />
            {
                //Build routes from route settings
-            [
-                loginRoute,
-                signupRoute,
+            [   
+                discoverRoute,
                 dashboardRoute
             ].map(
                 (settings, index)=>(<Route key={`Route-${index}`} {...settings}/>)
