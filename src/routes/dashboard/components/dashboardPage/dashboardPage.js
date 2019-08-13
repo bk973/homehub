@@ -1,47 +1,42 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { renderChildren} from '../../../../utils/router'
+import { isEmpty } from 'react-redux-firebase'
 
-import AccountMenu from '../accountMenu'
-import Sidenav from '../sideNav'
+import DashboardLayout from '../../../../layouts/dashboardLayout'
 
 //dashboard routes...
-import approvedRoute from '../../routes/requests'
 import feedbackRoute from '../../routes/feedback'
-import historyRoute from '../../routes/history'
-import requestsRoute from '../../routes/requests'
+import favoritesRoute from '../../routes/favorites'
+import listRoute from '../../routes/list'
 import settingsRoute from '../../routes/settings'
 
 import './dashboardPage.scss'
 
 export default function dashboardPage({
        firebase,
+       firestore,
        profile,
-       auth,
+       listings,
+       deleteListing,
+       submitForm,
+       uid,
        displayName,
        avatarUrl,
        logout,
        match,
 }) {
     return (
-      <div>
-        <AccountMenu
-        logout={logout}
-        />
-        <div className="section-wrapper">
-        <div className="columns">
-          <div className="column"><Sidenav/></div>
-          <div className="column is-four-fifths">
-          <Switch>
+      <DashboardLayout logout={logout}>
+         <Switch>
           { /**child routes of dashboard route */}
           { 
             renderChildren([
-              approvedRoute,
               feedbackRoute,
-              historyRoute,
-              requestsRoute,
+              favoritesRoute,
+              listRoute,
               settingsRoute
-            ], match, { auth })
+            ], match, { uid, listings, submitForm })
           }
           <Route
           exact
@@ -49,27 +44,43 @@ export default function dashboardPage({
           render={
             ()=>(
               <div className="">
-                <div className="box welcome-banner">
+                <div className="welcome-banner">
                  <article>
-                    <h4 className="title is-4">Hi, {displayName}</h4>
-                     <p className="subtitle is-6"></p>
-                    <button className="button is-primary"> Start Your Journey</button>
+                    <h4 className="title is-4">My Listings</h4>
+                    <p className="subtitle is-6"></p>
                  </article>
-                </div>
-                <div className="box">
-                  <p>
-                    <span className="icon is-large"><i class="fas fa-tachometer-alt fa-lg"></i></span>
-                    <span className="title is-4">Analytics</span>
-                  </p>
-                </div>
+
+                   <div className="columns is-multiline">
+                   { !isEmpty(listings)&&listings.map(
+                     (listing, index) => (
+                         <div key={`index-${listing.id}`} className="column card listing is-two-fifths">
+                             <p className="title is-6">{listing.title}</p>
+                             <p className="subtitle is-6">{listing.description}</p>
+                             <p className="location">
+                               <span className="icon is-medium"><i className="fas fa-map-marker"></i></span>
+                               <span>{listing.location}</span>
+                             </p>
+                             <p>UGX<strong className="price">{listing.currentPrice}</strong></p>
+                             <div className="buttons">
+                               <button className="button">
+                                 <span className="icon"><i className="fas fa-pen"></i></span>
+                                 <span>Edit</span>
+                              </button>
+                               <button onClick={() => {deleteListing(listing.id)}} className="button">
+                                 <span className="icon"><i className="fas fa-trash-alt"></i></span>
+                                 <span>Delete</span>
+                               </button>
+                             </div>
+                         </div>
+                     )
+                   )}
+                   </div>
+              </div>
              </div>
             )
-          }
+            }
           />
         </Switch>
-          </div>
-        </div>
-        </div>
-      </div>
+      </DashboardLayout>
     )
 }

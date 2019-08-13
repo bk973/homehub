@@ -23,7 +23,7 @@ $fullhd-enabled: false;
 //Bulma's component variables
 $body-background-color: $white;
 $control-border-width: 2px;
-$input-border-color: transparent;
+$input-border-color: #cfd8dc;
 $input-shadow: none;
 $is-white: $white;
 
@@ -51,3 +51,4 @@ $is-white: $white;
 @import "../node_modules/bulma/sass/components/tabs.sass";
 @import "../node_modules/bulma/sass/components/card.sass";
 @import "../node_modules/bulma/sass/layout/footer.sass";
+@import "../node_modules/bulma/sass/grid/tiles.sass"
