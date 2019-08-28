@@ -11,7 +11,6 @@ import favoritesRoute from '../../routes/favorites'
 import listRoute from '../../routes/list'
 import settingsRoute from '../../routes/settings'
 
-import './dashboardPage.scss'
 
 export default function dashboardPage({
        firebase,
