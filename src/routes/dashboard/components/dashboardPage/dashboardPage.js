@@ -42,7 +42,7 @@ export default function dashboardPage({
           path={match.url}
           render={
             ()=>(
-              <div className="">
+              <div className="box">
                 <div className="welcome-banner">
                  <article>
                     <h4 className="title is-4">My Listings</h4>
