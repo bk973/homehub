@@ -20,7 +20,6 @@ import Add from '@material-ui/icons/Add'
 import History from '@material-ui/icons/History'
 import Home from '@material-ui/icons/Home'
 import Archive from '@material-ui/icons/Archive'
-import Account from '@material-ui/icons/Account'
 import Assessment from '@material-ui/icons/Assessment'
 
 export default function DashboardLayout({
@@ -62,29 +61,26 @@ export default function DashboardLayout({
                <div className={classes.toolbar} />
               <List>
                  <ListItem>
-                    <ListItemIcon>
+                    <IconButton>
                        <Home/>
-                    </ListItemIcon>
+                    </IconButton>
+   
                  </ListItem>
                  <ListItem>
-                    <ListItemIcon>
+                    <IconButton>
                        <Assessment/>
-                    </ListItemIcon>
+                    </IconButton>
                  </ListItem>
+                
                  <ListItem>
-                    <ListItemIcon>
-                       <Account/>
-                    </ListItemIcon>
-                 </ListItem>
-                 <ListItem>
-                    <ListItemIcon>
+                    <IconButton>
                         <History/>
-                    </ListItemIcon>
+                    </IconButton>
                  </ListItem>
                  <ListItem>
-                    <ListItemIcon>
+                    <IconButton>
                        <Archive/>
-                    </ListItemIcon>
+                    </IconButton>
                  </ListItem>
               </List>
            </Drawer>
