@@ -1,11 +1,14 @@
 import React from 'react'
-import ListForm from './listForm'
+import ListForm from './addForm'
 
-export default function listPage({submitForm}) {
+export default function addPage({submitForm}) {
        return(
-          <div>
+          <div className="">
              <p className="title">List your home for sale</p>
              <ListForm
+             handleForm={submitForm}
+             />
+              <ListForm
              handleForm={submitForm}
              />
           </div>

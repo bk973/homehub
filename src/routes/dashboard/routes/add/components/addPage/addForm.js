@@ -2,7 +2,7 @@ import React from 'react'
 import { Formik, Form, Field } from 'formik' 
 
 
-export default function listForm({handleForm}) {
+export default function addForm({handleForm}) {
         const initialValues = {
             title: "",
             description: "",

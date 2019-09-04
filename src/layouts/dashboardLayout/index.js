@@ -1,2 +1,4 @@
 import dashboardLayout from './dashboardLayout'
-export default dashboardLayout
+import enhance from './dashboardLayout.enhancer'
+
+export default enhance(dashboardLayout)

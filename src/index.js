@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
 import store, { rrfProps}  from './store/createStore'
-import './index.scss';
+import './index.css';
 import App from './containers/app';
 import * as serviceWorker from './serviceWorker';
 

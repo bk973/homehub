@@ -1,6 +1,5 @@
 import React from 'react'
 import { Formik, Form , Field} from 'formik'
-import './signupForm.scss'
 
 export default function signupForm({handleSubmit}) {
     let initialValues = {

@@ -3,7 +3,6 @@ import LoginForm from '../loginForm'
 import { GoogleLoginButton} from 'react-social-login-buttons'
 import { Link } from 'react-router-dom'
 import { SIGNUP_PATH } from '../../../../constants/paths'
-import './loginPage.scss'
 
 export default function loginPage({firebase,googleLogin}) {
     return (

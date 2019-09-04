@@ -1,6 +1,5 @@
 import React from 'react'
 import MainNav from './components/mainNav'
-import Footer from './components/footer'
 import { GoogleLoginButton }  from 'react-social-login-buttons'
 import { SIGNUP_PATH } from '../../../../constants/paths'
 import { Link } from 'react-router-dom'
@@ -8,7 +7,6 @@ import { Link } from 'react-router-dom'
 import { ReactComponent as House  } from '../../../../static/house.svg'
 import { ReactComponent as Savings} from '../../../../static/savings.svg'
 import { ReactComponent as Setup} from '../../../../static/setup.svg'
-import './homePage.scss'
 
 export default function homePage({firebase, googleLogin}) {
     return (
@@ -98,8 +96,6 @@ export default function homePage({firebase, googleLogin}) {
                </div>
              </div>
            </div>
-
-          <Footer/>
         </React.Fragment>
     )
 }
