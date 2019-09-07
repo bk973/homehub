@@ -1,9 +1,11 @@
 import React from 'react'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
-export default function loadingSpinner() {
+
+export default function loadingSpinner({classes}) {
     return (
-        <div className="loading-spinner">
-         <span className="icon is-large"><i className="fad fa-circle-notch fas-spin"></i></span>
-        </div>
+           <div className={classes.root}>
+              <CircularProgress className={classes.progress} />
+           </div>
     )
 }
