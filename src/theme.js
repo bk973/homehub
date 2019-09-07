@@ -4,7 +4,7 @@ export default {
         main: '#2196f3'
       },
       background: {
-        default: '#fff'
+        default: '#eceff1'
       }
     },
     // Enable typography v2: https://material-ui.com/style/typography/#migration-to-typography-v2

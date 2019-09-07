@@ -1,16 +1,25 @@
 import React from 'react'
-import ListForm from './addForm'
+import PropTypes from 'prop-types'
+import Typography from '@material-ui/core/Typography'
 
-export default function addPage({submitForm}) {
-       return(
-          <div className="">
-             <p className="title">List your home for sale</p>
-             <ListForm
-             handleForm={submitForm}
-             />
-              <ListForm
-             handleForm={submitForm}
-             />
-          </div>
-       )
+import AddForm from './components/addForm'
+
+function addPage(props) {
+    const { classes } = props
+   
+    return (
+        <div className={classes.root}>
+          <Typography>
+            Add a property to the market place
+          </Typography>
+          <AddForm/>
+        </div>
+    )
 }
+
+addPage.propTypes = {
+
+}
+
+export default addPage
+

@@ -1,6 +1,8 @@
 import { compose, setDisplayName } from 'recompose'
+import { withStyles } from '@material-ui/core/styles'
+import styles from './addPage.styles'
 
 export default compose(
-       setDisplayName('Enhanced list page'),
-      
+       setDisplayName('enhanced add page'),
+       withStyles(styles)
 )

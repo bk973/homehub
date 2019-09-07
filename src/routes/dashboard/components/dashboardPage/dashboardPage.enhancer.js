@@ -6,10 +6,11 @@ import { compose,
  } from 'recompose'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { withStyles } from '@material-ui/core/styles'
 import { UserIsAuthenticated} from '../../../../utils/router'
 import { firestoreConnect } from 'react-redux-firebase'
 import { DASHBOARD_PATH} from '../../../../constants/paths'
-
+import Styles from './dashboardPage.styles'
 
 export default compose(
       setDisplayName('...'),
@@ -22,8 +23,11 @@ export default compose(
              listings: firestore.ordered.listings
       })),
       withRouter,
-      withState('open', 'setOpen', false),
+      withState('value', 'setValue', 0 ),
       withHandlers({
+              handleChange: props => (event, newValue) => {
+                          props.setValue(newValue)
+              },
               logout: ({firebase, history}) => () => {
                       return firebase.logout()
                       .then(history.push('/'))
@@ -39,5 +43,6 @@ export default compose(
                          .catch(err=>console.log(err))
             }
       }),
+      withStyles(Styles),
       flattenProp('profile'),
 )
