@@ -1,3 +1,4 @@
 import loadingSpinner from './loadingSpinner'
+import enhance from './loadingSpinner.enhancer'
 
-export default loadingSpinner
+export default enhance(loadingSpinner)
