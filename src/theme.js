@@ -20,6 +20,9 @@ export default {
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'center'
+    },
+    sectionPadding: {
+      padding: '120px 0'
     }
   }
   
