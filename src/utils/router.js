@@ -1,18 +1,41 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import { DASHBOARD_PATH } from '../constants/paths'
 import {Context} from './context'
 
-
-export function PrivateRoute({children, ...rest}){
-  //protect routes from being accessed by users who are not authenticated...
-  let context = React.useContext(Context);
-  
+export const ProtectedRoute = ({ children, ...rest }) => {
+  let context = React.useContext(Context)
+  return (
+      <Route
+          {...rest}
+          render={
+              () => {
+                  return context.isAuthenticated ?
+                      children :
+                      <Redirect to='/' />
+              }
+          }
+      />
+  )
 }
 
-export function AuthenticatedRedirect(){
-  //redirect user if authenticated, useful for login page...
+export const AuthenticatedRedirect = ({ children, ...rest }) => {
+  let context = React.useContext(Context)
+  return (
+      <Route
+          {...rest}
+          render={
+              () => {
+                  return context.isAuthenticated ?
+                      <Redirect to={DASHBOARD_PATH} /> :
+                      children
+              }
+          }
+      />
+  )
 }
+
+
 /**
  * Render children based on route config objects
  * @param {Array} routes - Routes settings array
