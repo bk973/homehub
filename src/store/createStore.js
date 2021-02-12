@@ -5,7 +5,7 @@ import { createFirestoreInstance } from 'redux-firestore'
 import 'firebase/auth'
 import 'firebase/firestore'
 import rootReducer from './reducers'
-import { firebaseConfig} from '../config'
+import {firebaseConfig} from '../config'
 
 const initialState = {}
 const middleware = [

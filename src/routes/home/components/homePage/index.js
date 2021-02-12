@@ -1,4 +1,2 @@
-import homePage from './homePage'
-import enhance from './homePage.enhancer'
-
-export default enhance(homePage)
+import HomePage from './homePage'
+export default HomePage

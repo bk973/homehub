@@ -1,59 +1,18 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect'
-import locationHelperBuilder from 'redux-auth-wrapper/history4/locationHelper'
-import createHistory from 'history/createBrowserHistory'
-import LoadingSpinner from '../components/loadingSpinner'
 import { DASHBOARD_PATH } from '../constants/paths'
+import {Context} from './context'
 
-const locationHelper = locationHelperBuilder({})
-const history = createHistory()
 
-/**
- * Higher Order Component that redirects to `/login` instead
- * rendering if user is not authenticated (default of redux-auth-wrapper).
- * @param {Component} componentToWrap - Component to wrap
- * @return {Component} wrappedComponent
- */
-export const UserIsAuthenticated = connectedRouterRedirect({
-  redirectPath: '/',
-  AuthenticatingComponent: LoadingSpinner,
-  wrapperDisplayName: 'UserIsAuthenticated',
-  // Want to redirect the user when they are done loading and authenticated
-  authenticatedSelector: ({ firebase: { auth } }) =>
-    !auth.isEmpty && !!auth.uid,
-  authenticatingSelector: ({ firebase: { auth, isInitializing } }) =>
-    !auth.isLoaded || isInitializing,
-  redirectAction: newLoc => {
-    // Use push, replace, and go to navigate around.
-    history.push(newLoc)
-  }
-})
+export function PrivateRoute({children, ...rest}){
+  //protect routes from being accessed by users who are not authenticated...
+  let context = React.useContext(Context);
+  
+}
 
-/**
- * Higher Order Component that redirects to listings page or most
- * recent route instead rendering if user is not authenticated. This is useful
- * routes that should not be displayed if a user is logged in, such as the
- * login route.
- * @param {Component} componentToWrap - Component to wrap
- * @return {Component} wrappedComponent
- */
-export const UserIsNotAuthenticated = connectedRouterRedirect({
-  AuthenticatingComponent: LoadingSpinner,
-  wrapperDisplayName: 'UserIsNotAuthenticated',
-  allowRedirectBack: false,
-  // Want to redirect the user when they are done loading and authenticated
-  authenticatedSelector: ({ firebase: { auth } }) => auth.isEmpty,
-  authenticatingSelector: ({ firebase: { auth, isInitializing } }) =>
-    !auth.isLoaded || isInitializing,
-  redirectPath: (state, ownProps) =>
-    locationHelper.getRedirectQueryParam(ownProps) || DASHBOARD_PATH,
-  redirectAction: newLoc => {
-    // Use push, replace, and go to navigate around.
-    history.push(newLoc)
-  }
-})
-
+export function AuthenticatedRedirect(){
+  //redirect user if authenticated, useful for login page...
+}
 /**
  * Render children based on route config objects
  * @param {Array} routes - Routes settings array

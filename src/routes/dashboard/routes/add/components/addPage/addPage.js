@@ -1,17 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Typography from '@material-ui/core/Typography'
+import AddForm from '../addForm'
 
-import AddForm from './components/addForm'
-
-function addPage(props) {
-    const { classes } = props
-   
+function addPage() {
     return (
-        <div className={classes.root}>
-          <Typography>
-            Add a property to the market place
-          </Typography>
+        <div className="">
+          <h3 className=""> Add a property to the market place</h3>
           <AddForm/>
         </div>
     )

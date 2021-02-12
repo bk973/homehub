@@ -13,7 +13,9 @@ export default function Routes() {
            <Route
            exact
            path={homeRoute.path}
-           component={homeRoute.component}
+           >
+               <homeRoute.component/>
+           </Route>
            />
            {
                //Build routes from route settings
@@ -21,7 +23,9 @@ export default function Routes() {
                 discoverRoute,
                 dashboardRoute
             ].map(
-                (settings, index)=>(<Route key={`Route-${index}`} {...settings}/>)
+                (settings, index)=>(
+                <Route key={`Route-${index}`} {...settings}/>
+                )
             )
 
            }
