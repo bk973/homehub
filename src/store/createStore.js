@@ -2,6 +2,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk'
 import firebase from 'firebase/app'
 import { createFirestoreInstance } from 'redux-firestore'
+import 'firebase/storage'
 import 'firebase/auth'
 import 'firebase/firestore'
 import rootReducer from './reducers'
@@ -14,7 +15,7 @@ const middleware = [
 
 const rrfConfig = { 
        userProfile: 'users',
-       useFirestoreForProfile: true
+       useFirestoreForProfile: true,
 } 
 
 firebase.initializeApp(firebaseConfig)

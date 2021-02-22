@@ -1,2 +1,2 @@
-import addPage from './addPage'
-export default addPage
+import AddPage from './addPage'
+export default AddPage

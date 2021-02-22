@@ -1,5 +1,4 @@
 import React, {useContext} from 'react'
-import MainNav from './components/mainNav'
 import { GoogleLoginButton }  from 'react-social-login-buttons'
 import { SIGNUP_PATH } from '../../../../constants/paths'
 import { Link } from 'react-router-dom'
@@ -12,13 +11,13 @@ import { ReactComponent as Setup} from '../../../../static/setup.svg'
 
 export default function HomePage() {
     let context = useContext(Context)
+    let loginWithGoogle = context.loginWithGoogle
     return (
         <React.Fragment>
-          <MainNav/>
+          
           <div id="hero" classname="w-full">
-             <div>
-               <GoogleLoginButton onClick=""/>
-             </div>
+            home...
+               
           </div>
         </React.Fragment>
     )
